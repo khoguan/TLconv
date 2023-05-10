@@ -76,7 +76,7 @@ module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL
 ## Windows 10 環境安裝設定
 
 0. 將本說明檔閣有一个module檔 `TL_conv.rakumod` 佮程式檔 `tls-tlt.raku` 掠落來，
-   囥佇一个工作目錄（資料夾）內，可比講 C:\\Users\\"使用者名稱"\\TL
+   囥佇一个工作目錄（資料夾）內，可比講 `C:\Users\"使用者名稱"\TL`
    其中个 "使用者名稱" 著愛換做汝个電腦真正咧用个使用者名稱。
 
 1. 先去「開始功能表->控制台->地區->系統管理」點「變更系統地區設定」入去，
@@ -99,7 +99,7 @@ module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL
    揤確定。
 
 4. 安裝 Raku 程式套件，去 https://rakudo.org/downloads 頁面，點上新个安裝檔，
-   目今(2023-2-22)上新个安裝檔个檔名是 rakudo-moar-2022.12-01-win-x86_64-msvc.msi
+   目今(2023-2-22)上新个安裝檔个檔名是 `rakudo-moar-2022.12-01-win-x86_64-msvc.msi`
    下載落來，點兩下，安裝。佇安裝對話框个第二頁，愛會記得勾選：
    **I accept the terms in the License Agreement**
    才有法度點 Next 進到下一頁。第三頁就免改，點 Next。第四頁，會記得勾選
