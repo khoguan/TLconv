@@ -1,4 +1,4 @@
-# TL_conv 數字式台羅轉做調號式台羅个工具程式說明
+# TL_conv 數字式、調號式台羅互轉程式个說明
 
 Author: 潘科元 khoguanp@yahoo.com  
 Date: 2023-02-22  
