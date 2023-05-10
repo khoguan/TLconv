@@ -1,7 +1,7 @@
 # TL_conv 數字式台羅轉做調號式台羅个工具程式說明
 
 Author: 潘科元 khoguanp@yahoo.com  
-Version: 0.8 2023-02-22  
+Date: 2023-02-22  
 License: 本軟體予社會自由使用，作者無為使用者負擔任何責任。汝若修改本軟體，請寄一份予作者參考利用。
 
 ## 特色
@@ -75,7 +75,7 @@ module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL
 -----------------------------------------------------------------------
 ## Windows 10 環境安裝設定
 
-0. 將本說明檔閣有一个module檔 TL_conv.rakumod 佮程式檔 tls-tlt.raku 掠落來，
+0. 將本說明檔閣有一个module檔 `TL_conv.rakumod` 佮程式檔 `tls-tlt.raku` 掠落來，
    囥佇一个工作目錄（資料夾）內，可比講 C:\\Users\\"使用者名稱"\\TL
    其中个 "使用者名稱" 著愛換做汝个電腦真正咧用个使用者名稱。
 
@@ -101,9 +101,9 @@ module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL
 4. 安裝 Raku 程式套件，去 https://rakudo.org/downloads 頁面，點上新个安裝檔，
    目今(2023-2-22)上新个安裝檔个檔名是 rakudo-moar-2022.12-01-win-x86_64-msvc.msi
    下載落來，點兩下，安裝。佇安裝對話框个第二頁，愛會記得勾選：
-   I accept the terms in the License Agreement
+   **I accept the terms in the License Agreement**
    才有法度點 Next 進到下一頁。第三頁就免改，點 Next。第四頁，會記得勾選
-   Add environment variables. 一步一步做落去，系統就會問咱：
+   **Add environment variables.** 一步一步做落去，系統就會問咱：
    「您是否要允許這個來自未知發行者的 App 變更您的裝置？」
    點「是」。
 
@@ -119,6 +119,5 @@ module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL
 ```
      raku tls-tlt.raku "數字式台羅文字檔名.txt" > "調號式台羅文字檔名.txt"
 ```
-   其中迄个「數字式台羅文字檔名.txt」檔案，著愛先存佇咱个工作目錄內，若存佇別位，
+   其中迄个`數字式台羅文字檔名.txt`檔案，著愛先存佇咱个工作目錄內，若存佇別位，
    檔名頭前著愛加目錄名。
-
