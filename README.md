@@ -27,7 +27,7 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
 
 汝寫个 Raku 程式，欲叫用 `TLconv` module，著愛佇頭前先寫：
 
-```
+```raku
   use lib <.>;  # TLconv.rakumod 佮汝个程式囥佇仝一个目錄內。
   use TLconv;
 ```
@@ -46,7 +46,7 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
   一个調號式台羅音節。做法是佇caller遐，先用regex个 `m/ /` 相關个指令
   掠著台羅音節个Match object：
 
-```
+```raku
   my $input;  # 可比講將一篇文本進行音節分切，了後共每一个音節assign予 `$input`
   my $tlt;    # 欲寄囥後手轉換出來个調號式台羅音節
 
@@ -65,7 +65,7 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
   Lò-lò長个輸入字串內底若有無符合台羅結構个音節，可比講英文多音節單字，
   按呢本函式會照原樣輸出迄部份。
 
-```
+```raku
   for lines() {
       put tls-tlt($_);
   }
@@ -86,7 +86,8 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
    ./tls-tlt.raku "數字式台羅文字檔名.txt" > "調號式台羅文字檔名.txt"
 ```
    注意：
-   o 輸出檔名佮輸入檔名著愛號無仝款名。
+   o 「輸入檔名」（來源檔）佮「輸出檔名」（結果檔）著愛號無仝款名，才袂未曾未
+     就將來源檔清空去。
    o 佇 Windows CMD（所謂DOS視窗）/ Powershell 內底使用，愛扑：
 ```
      raku tls-tlt.raku "數字式台羅文字檔名.txt" > "調號式台羅文字檔名.txt"
