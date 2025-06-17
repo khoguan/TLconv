@@ -1,7 +1,8 @@
-# TL_conv 數字式、調號式台羅互轉程式个說明
+# TL_conv 數字式、調號式台語羅馬字互轉程式个說明
 
 Author: 潘科元 khoguanp@yahoo.com  
-Date: 2023-02-22  
+Date: 2023-02-22, 2025-06-17
+Version: 0.3
 License: 本軟體予社會自由使用，作者無為使用者負擔任何責任。汝若修改本軟體，請寄一份予作者參考利用。
 
 ## 特色
@@ -9,12 +10,20 @@ License: 本軟體予社會自由使用，作者無為使用者負擔任何責�
 使用教育部台羅个拼寫法，連老泉腔（有 ir / er / ere / irn / irt / irm .... 个韻母），
 古泉腔（有 irinn / irng / iro .... 韻母）都有法度正確轉換做調號式。
 
+## 進度
+
+1. 數字式台語羅馬字轉做調號式台語羅馬字，有做出一个 Raku module 佮一支獨立个程式。
+2. 調號式台語羅馬字轉做數字式台語羅馬字，猶未做。
+
 ## 說明
 
 一、`TL_conv.rakumod` 是將教育部版个數字式台語羅馬字轉換做調號式台語羅馬字个
 Raku module。
 
-module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL_conv` module，著愛佇頭前先寫：
+module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也就是會使接受兩種
+無仝型別个引數，所執行个動作無仝（C++ 叫做 `overloading function`，Raku 叫做 `multi-dispatch routine`）。
+
+汝寫个 Raku 程式，欲叫用 `TL_conv` module，著愛佇頭前先寫：
 
 ```
   use lib <.>;  # TL_conv.rakumod 佮汝个程式囥佇仝一个目錄內。
@@ -27,18 +36,30 @@ module 內底提供兩个仝名个函式。汝寫个 Raku 程式，欲叫用 `TL
 `tls-tlt()` 就是用來將台羅數字版轉做調號版个函式，有兩種呼叫介面：
 
 1. `tls-tlt($match)` 
-  佇caller遐，愛先用regex个 m/ / 指令掠著台羅音節个Match object：
+  `$match` 是一个有可能是數字式台羅个單音節，經過咱个程式比對了後，
+  確定有符合數字式台羅音節个構成條件（聲母+韻母+數字聲調），
+  所得著个一个 Raku `Match class` 个 `object`（佇遮就是指 `$match`
+  迄个變數）。了後將 `$match` 擲予 `tls-tlt()` 函式做轉換，就會得著
+  一个調號式台羅音節。做法是佇caller遐，先用regex个 `m/ /` 相關个指令
+  掠著台羅音節个Match object：
 
 ```
-  my $tlt;
+  my $input;  # 可比講將一篇文本進行音節分切，了後共每一个音節assign予 `$input`
+  my $tlt;    # 欲寄囥後手轉換出來个調號式台羅音節
+
+  # 假使 `$input` 內底个字串有符合台羅音節个構造，按呢就會使放心共伊交予
+  # `tls-tlt()` 轉使調號式音節
   if $input ~~ /<TL>/ { $tlt = tls-tlt($/); }
 ```
 
-  注意 / / 內底个 <TL> 就是我佇 `TL_conv.rakumod` 內底提供出來个一个數字式台羅个
-  regular expression（RE，正規表示式）。
+  注意 / / 內底个 <TL> 就是我佇 `TL_conv.rakumod` 內底提供出來个一个對應數字式
+  台羅音節个 regular expression（RE，正規表示式）。
 
 2. `tls-tlt($str)`
-  佇caller遐，直接將有包含數字式台羅个字串(Str type)擲予 tls-tlt 進行轉換。
+  佇caller遐，直接將有包含數字式台羅个字串(Str type)，無限定是毋是單音節，
+  規篇台羅文章嘛無差，擲予 tls-tlt 進行轉換，來紡出正式版个調號式台羅。
+  Lò-lò長个輸入字串內底若有無符合台羅結構个音節，可比講英文多音節單字，
+  按呢本函式會照原樣輸出迄部份。
 
 ```
   for lines() {
