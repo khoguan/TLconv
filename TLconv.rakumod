@@ -6,7 +6,7 @@
 # v0.93 用 <  > 來定義聲母
 # 作者：潘科元
 
-unit module TL_conv:ver<0.9.3>:auth<github:khoguan>:api<1>;
+unit module TLconv:ver<0.9.3>:auth<github:khoguan>:api<1>;
 
 my regex 漢字 { <:Script<Han>> }
 my regex 前邊界 { << || <?after <漢字>> }

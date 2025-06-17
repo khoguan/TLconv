@@ -1,7 +1,7 @@
 #!/usr/bin/env raku
 
 use lib <.>;
-use TL_conv;
+use TLconv;
 
 #my @音節檔 = <imtsiat.txt>;
 #my @音節檔 = <imtsiat.txt syl-dia.txt>;

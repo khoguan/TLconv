@@ -1,9 +1,10 @@
-# TL_conv 數字式、調號式台語羅馬字互轉程式个說明
+# TLconv 數字式、調號式台語羅馬字互轉程式个說明
 
 Author: 潘科元 khoguanp@yahoo.com  
 Date: 2023-02-22, 2025-06-17
 Version: 0.3
-License: 本軟體予社會自由使用，作者無為使用者負擔任何責任。汝若修改本軟體，請寄一份予作者參考利用。
+License: 本軟體予社會自由使用，作者無為使用者負擔任何責任。汝若修改本軟體，
+請寄一份予作者參考利用。
 
 ## 特色
 
@@ -17,25 +18,27 @@ License: 本軟體予社會自由使用，作者無為使用者負擔任何責�
 
 ## 說明
 
-一、`TL_conv.rakumod` 是將教育部版个數字式台語羅馬字轉換做調號式台語羅馬字个
+一、`TLconv.rakumod` 是將教育部版个數字式台語羅馬字轉換做調號式台語羅馬字个
 Raku module。
 
 module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也就是會使接受兩種
-無仝型別个引數，所執行个動作無仝（C++ 叫做 `overloading function`，Raku 叫做 `multi-dispatch routine`）。
+無仝型別个引數，所執行个動作無仝（C++ 叫做 `overloading function`，Raku 叫做
+`multi-dispatch routine`）。
 
-汝寫个 Raku 程式，欲叫用 `TL_conv` module，著愛佇頭前先寫：
+汝寫个 Raku 程式，欲叫用 `TLconv` module，著愛佇頭前先寫：
 
 ```
-  use lib <.>;  # TL_conv.rakumod 佮汝个程式囥佇仝一个目錄內。
-  use TL_conv;
+  use lib <.>;  # TLconv.rakumod 佮汝个程式囥佇仝一个目錄內。
+  use TLconv;
 ```
 
 以下是 `tls-tlt()` 函式个說明：
 
-`tls` 是 Tâi-Lô Sòo-jī; tlt 是 Tâi-lô Tiāu-hō
+`tls` 是 Tâi-Lô Sòo-jī（台羅數字）; `tlt` 是 Tâi-lô Tiāu-hō（台羅調號）
 `tls-tlt()` 就是用來將台羅數字版轉做調號版个函式，有兩種呼叫介面：
 
 1. `tls-tlt($match)` 
+
   `$match` 是一个有可能是數字式台羅个單音節，經過咱个程式比對了後，
   確定有符合數字式台羅音節个構成條件（聲母+韻母+數字聲調），
   所得著个一个 Raku `Match class` 个 `object`（佇遮就是指 `$match`
@@ -52,10 +55,11 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
   if $input ~~ /<TL>/ { $tlt = tls-tlt($/); }
 ```
 
-  注意 / / 內底个 <TL> 就是我佇 `TL_conv.rakumod` 內底提供出來个一个對應數字式
+  注意 / / 內底个 <TL> 就是我佇 `TLconv.rakumod` 內底提供出來个一个對應數字式
   台羅音節个 regular expression（RE，正規表示式）。
 
 2. `tls-tlt($str)`
+
   佇caller遐，直接將有包含數字式台羅个字串(Str type)，無限定是毋是單音節，
   規篇台羅文章嘛無差，擲予 tls-tlt 進行轉換，來紡出正式版个調號式台羅。
   Lò-lò長个輸入字串內底若有無符合台羅結構个音節，可比講英文多音節單字，
@@ -71,7 +75,7 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
 軟體家私。
 
 用法：
-1. 將 `TL_conv.rakumod` 佮 `tls-tlt.raku` 囥佇仝一个工作目錄內底，欲用進前，
+1. 將 `TLconv.rakumod` 佮 `tls-tlt.raku` 囥佇仝一个工作目錄內底，欲用進前，
    愛先確認 `tls-tlt.raku` 个檔案存取模式是「可執行」--个。了後執行：
 ```
    ./tls-tlt.raku "數字式台羅文字檔名.txt"
@@ -96,7 +100,7 @@ module 內底提供一个函式 `tls-tlt()`，但是有兩種呼叫方式，也�
 -----------------------------------------------------------------------
 ## Windows 10 環境安裝設定
 
-0. 將本說明檔閣有一个module檔 `TL_conv.rakumod` 佮程式檔 `tls-tlt.raku` 掠落來，
+0. 將本說明檔閣有一个module檔 `TLconv.rakumod` 佮程式檔 `tls-tlt.raku` 掠落來，
    囥佇一个工作目錄（資料夾）內，可比講 `C:\Users\"使用者名稱"\TL`
    其中个 "使用者名稱" 著愛換做汝个電腦真正咧用个使用者名稱。
 
