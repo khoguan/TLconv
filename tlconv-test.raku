@@ -58,6 +58,6 @@ for @ims -> $im {
 =begin conv
 # 台羅數字版輸出做台羅調號版
 for @ims -> $im {
-    put tls-tlt(liah-match($im));
+    put tlst(liah-match($im));
 }
 =end conv

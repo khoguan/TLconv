@@ -104,27 +104,27 @@ sub add-tone-mark(Str $unpak where *.elems == 1|2, Str $tonenum --> Str) {
     S/^(.)/{$0 ~ %調號{$tonenum}}/ with $unpak;
 } 
 
-=begin tls-tlt
+=begin tlst
 tls: Tâi-Lô Sòo-jī; tlt: Tâi-lô Tiāu-hō
-tls-tlt() 將台羅數字版轉做調號版，有兩種呼叫介面：
+tlst() 將台羅數字版轉做調號版，有兩種呼叫介面：
 一、
-tls-tlt($match) 
+tlst($match) 
   佇caller遐，愛先用regex个 m/ / 指令掠著台羅音節个Match object：
 
   my $tlt;
-  if $input ~~ /<TL>/ { $tlt = tls-tlt($/); }
+  if $input ~~ /<TL>/ { $tlt = tlst($/); }
 
 二、
-tls-tlt($str)
-  佇caller遐，直接將有包含數字式台羅个字串(Str type)擲予 tls-tlt 進行轉換。
+tlst($str)
+  佇caller遐，直接將有包含數字式台羅个字串(Str type)擲予 tlst 進行轉換。
 
   for lines() {
-      put tls-tlt($_);
+      put tlst($_);
   }
 
-=end tls-tlt
+=end tlst
 
-multi sub tls-tlt(Match $tls --> Str) is export
+multi sub tlst(Match $tls --> Str) is export
 {
     # A1/A2/A3/A5/A6/A7 可能是紙張大細个規格，若拄著，會特別提示。
     with ~$tls {
@@ -139,7 +139,7 @@ multi sub tls-tlt(Match $tls --> Str) is export
                $tls<TL><韻尾>;
 }
 
-multi sub tls-tlt(Str $tls --> Str) is export
+multi sub tlst(Str $tls --> Str) is export
 {
-    return S:g/(<TL>)/{tls-tlt($0)}/ with $tls;
+    return S:g/(<TL>)/{tlst($0)}/ with $tls;
 }
